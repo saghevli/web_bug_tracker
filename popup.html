@@ -1,14 +1,57 @@
 
 <html>
 <head>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  <script src="popup.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="popup.js"></script>
+<style type="text/css">
+table {
+	table-layout: fixed;
+	width: 100%;
+  border-collapse:collapse;
+}
+
+td {
+  border: 1px solid black;
+  padding-left: 5px;
+  word-wrap: break-word;
+}
+tr th {
+	border: 1px solid black;
+	text-align: left;
+	padding-left: 5px;	
+}
+</style>
 </head>
-<body style="width: 400px">
-  <div>Search Bookmarks: <input id="search"></div>
-  <div id="bookmarks"></div>
-  <div id="editdialog"></div>
-  <div id="deletedialog"></div>
-  <div id="adddialog"></div>
+<body>
+	<h2>WebBug Tracker</h2>	
+	<form name="filter_form">
+		<input id="filter" type="radio" name="filter_opt" value="doubleclick">DoubleClick
+		<input id="filter" type="radio" name="filter_opt" value="advertising">Advertising    	
+	</form>  
+  <div id="summary_div">
+    Showing <span id="cookie_count"></span> cookies in <span id="filter_count"></span> <span id="filter_str"></span> cookie domains.
+    <br>
+    There have been <span id="reqs_count"></span> requests from <span id="filter_str2"></span>.
+  </div>
+  <br>
+  <table id="requests">
+  	<tr>
+    	<th>Requests</th>      
+    </tr>
+    <tr>
+    	<th>Destination</th>
+      <th>Referer</th>
+      <th>Value</th>
+    </tr>
+  <br>  
+  <table id="cookies">
+  	<tr>
+    	<th>Cookies</th>      
+    </tr>
+    <tr>
+    	<th>Domain</th>
+      <th>Name</th>
+      <th>Value</th>
+    </tr>
 </body>
 </html>
