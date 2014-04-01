@@ -1,16 +1,20 @@
-
 chrome.webRequest.onBeforeSendHeaders.addListener(
     function(details) {
     	if (!details.url.match(/doubleclick/gi) && !details.url.match(/adsense/gi)) {
     		return;
     	}
-    	console.log(details.url);
+        // console.log("details");
+        // console.log(details);
+    	console.log("Url: " + details.url);
+        console.log("RequestId: " + details.requestId);
+        console.log("Url: " + details.timeStamp);
     	for (var i = 0; i < details.requestHeaders.length; ++i) {
     		console.log("-");
     		console.log(details.requestHeaders[i].name);
-    		for (var prop in details.requestHeaders[i]) {
-    			console.log(prop.value);
-    		}
+            console.log(details.requestHeaders[i].value);
+    		// for (var prop in details.requestHeaders[i]) {
+    		// 	console.log(prop.value);
+    		// }
     	}
     	console.log("-------------------");
     	return;
